@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "uninvisibleentities",
+  "version": "${version}",
+  "name": "UninvisibleEntities",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/PhoenixOrigin/UninvisibleEntities"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/uninvisibleentities/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.phoenix.uninvisibleentities.UninvisibleEntities"
+    ]
+  },
+  "mixins": [
+    "uninvisibleentities.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
