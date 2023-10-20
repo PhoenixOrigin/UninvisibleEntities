@@ -24,13 +24,13 @@ jobs:
       - name: Rename file
         run: mv ./build/libs/UninvisibleEntities-1.0.jar ./build/libs/UninvisibleEntities-1.20.2.jar
 
-      - name: Write to file
+      - name: Update
         run: |
-          echo "ext {" > file.txt
-          echo "    mc_version = '1.19.4'" >> file.txt
-          echo "    loader_version = '0.14.23'" >> file.txt
-          echo "    yarn_mappings = '1.19.4+build.2'" >> file.txt
-          echo "}" >> file.txt
+            echo 'ext {' > properties.gradle
+            echo '    mc_version = '\''1.19.4'\'' ' >> properties.gradle
+            echo '    loader_version = '\''0.14.23'\'' ' >> properties.gradle
+            echo '    yarn_mappings = '\''1.19.4+build.2'\'' ' >> properties.gradle
+            echo '}' >> properties.gradle
 
       - name: Gradle build
         uses: gradle/gradle-build-action@v2
