@@ -41,7 +41,8 @@ jobs:
       - name: Rename file
         run: mv ./build/libs/UninvisibleEntities-1.0.jar ./build/libs/UninvisibleEntities-1.19.4.jar
 
-      - uses: marvinpinto/action-automatic-releases@latest
+      - name: Create Release
+        uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: latest
