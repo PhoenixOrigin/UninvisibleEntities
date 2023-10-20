@@ -25,7 +25,12 @@ jobs:
         run: mv ./build/libs/UninvisibleEntities-1.0.jar ./build/libs/UninvisibleEntities-1.20.2.jar
 
       - name: Write to file
-        run: echo "ext {\n    mc_version = '1.19.4'\n    loader_version = '0.14.23'\n    yarn_mappings = '1.19.4+build.2'\n}" > properties.gradle
+        run: |
+          echo "ext {" > file.txt
+          echo "    mc_version = '1.19.4'" >> file.txt
+          echo "    loader_version = '0.14.23'" >> file.txt
+          echo "    yarn_mappings = '1.19.4+build.2'" >> file.txt
+          echo "}" >> file.txt
 
       - name: Gradle build
         uses: gradle/gradle-build-action@v2
