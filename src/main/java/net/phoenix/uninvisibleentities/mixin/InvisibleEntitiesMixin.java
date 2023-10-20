@@ -1,8 +1,14 @@
 package net.phoenix.uninvisibleentities.mixin;
 
-import net.minecraft.client.render.WorldRenderer;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.scoreboard.AbstractTeam;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,18 +34,12 @@ public abstract class InvisibleEntitiesMixin {
 
     @Inject(method = "setInvisible", at = @At("HEAD"))
     private void disableInvisibleEntities(boolean invisible, CallbackInfo ci) {
-        if(!invisible) {
-            this.setGlowing(false);
-        }
+        if(!invisible) this.setGlowing(false);
     }
 
     @Inject(method = "getTeamColorValue", at = @At("HEAD"), cancellable = true)
     private void getTeamColor(CallbackInfoReturnable<Integer> cir) {
-        if(!this.getFlag(5)) {
-            AbstractTeam abstractTeam = this.getScoreboardTeam();
-            cir.setReturnValue(abstractTeam != null && abstractTeam.getColor().getColorValue() != null ? abstractTeam.getColor().getColorValue() : 16777215);
-            return;
-        }
-        cir.setReturnValue(0xfa4369);
+        if(this.getFlag(5)) cir.setReturnValue(0xfa4369);
     }
 }
+

@@ -21,6 +21,21 @@ jobs:
           gradle-version: release-candidate
           arguments: build
 
+      - name: Rename file
+        run: mv ./build/libs/UninvisibleEntities-1.0.jar ./build/libs/UninvisibleEntities-1.20.2.jar
+
+      - name: Write to file
+        run: echo "ext {\n    mc_version = '1.19.4'\n    loader_version = '0.14.23'\n    yarn_mappings = '1.19.4+build.2'\n}" > properties.gradle
+
+      - name: Gradle build
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: release-candidate
+          arguments: build
+
+      - name: Rename file
+        run: mv ./build/libs/UninvisibleEntities-1.0.jar ./build/libs/UninvisibleEntities-1.19.4.jar
+
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -29,4 +44,5 @@ jobs:
           title: Build
           files: |
             LICENSE.txt
-            ./build/libs/UninvisibleEntities-1.0.jar
+            ./build/libs/UninvisibleEntities-1.20.2.jar
+            ./build/libs/UninvisibleEntities-1.19.4.jar

@@ -12,9 +12,6 @@
   "icon": "assets/uninvisibleentities/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "net.phoenix.uninvisibleentities.UninvisibleEntities"
-    ]
   },
   "mixins": [
     "uninvisibleentities.mixins.json"
