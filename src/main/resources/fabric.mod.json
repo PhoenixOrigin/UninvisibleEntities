@@ -9,7 +9,7 @@
     "repo": "https://github.com/PhoenixOrigin/UninvisibleEntities"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/uninvisibleentities/icon.png",
+  "icon": "img.png",
   "environment": "*",
   "entrypoints": {
   },
