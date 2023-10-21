@@ -30,6 +30,7 @@ jobs:
             echo '    mc_version = '\''1.19.4'\'' ' >> properties.gradle
             echo '    loader_version = '\''0.14.23'\'' ' >> properties.gradle
             echo '    yarn_mappings = '\''1.19.4+build.2'\'' ' >> properties.gradle
+            echo '    fabric_version = '\''0.87.1+1.19.4'\'' ' >> properties.gradle
             echo '}' >> properties.gradle
 
       - name: Gradle build

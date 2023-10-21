@@ -12,6 +12,9 @@
   "icon": "img.png",
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "net.phoenix.uninvisibleentities.InvisMod"
+    ]
   },
   "mixins": [
     "uninvisibleentities.mixins.json"
